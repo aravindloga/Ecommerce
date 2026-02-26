@@ -10,4 +10,6 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
     @Query("Select p from Product p  where p.inStock = false")
     public List<Product> getOutOfStockProduct();
+
+    public List<Product> getProductByPrice(double start,double end);
 }
