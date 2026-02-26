@@ -13,10 +13,12 @@ import ShoppingApp.ShoppingApp.Repository.UserRepository;
 import ShoppingApp.ShoppingApp.ServiceImp.AdminControllerImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Service
 public class AdminControllerService  implements AdminControllerImp {
     @Autowired
     ProductRepository productRepository;
@@ -58,7 +60,7 @@ public class AdminControllerService  implements AdminControllerImp {
 
     @Override
     public List<Orders> getTodaySales() {
-            List<Orders> orders = orderRepository.findByDate(LocalDate.now());
+            List<Orders> orders = orderRepository.findByCreatedAt(LocalDate.now());
             return orders;
 
     }

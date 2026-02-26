@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Orders,Long> {
     List<Orders> findByUser(User user);
-    List<Orders> findByDate(LocalDate date);
+    List<Orders> findByCreatedAt(LocalDate date);
 }
